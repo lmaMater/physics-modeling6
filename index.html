@@ -133,7 +133,10 @@
         const refractiveIndices = parseFloat(document.getElementById("input-refractive-indices").value);
         const distancesBetweenSlotsMm = parseFloat(document.getElementById("input-distances-between-slots").value);
         const distanceToScreen = parseFloat(document.getElementById("input-distance-to-screen").value);
-
+        if (wavelengthNm < 0 || refractiveIndices < 0 || distancesBetweenSlotsMm < 0 || distanceToScreen < 0) {
+            alert("Введите неотрицательные значения!");
+            return;
+        }
         const d = distancesBetweenSlotsMm * 1e-3;
         const wavelength = wavelengthNm / refractiveIndices * 1e-9;
         const L = distanceToScreen;
